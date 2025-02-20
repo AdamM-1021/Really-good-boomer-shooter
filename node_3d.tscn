@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://mgbkeymyd85c"]
+[gd_scene load_steps=7 format=3 uid="uid://mgbkeymyd85c"]
 
 [ext_resource type="Texture2D" uid="uid://dy6v1areqcrk1" path="res://floor_1.png" id="1_eclw7"]
 
@@ -14,6 +14,10 @@ uv1_triplanar_sharpness = 1.0
 material = SubResource("StandardMaterial3D_dqvsh")
 size = Vector2(60, 60)
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1uylx"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7b8j4"]
+
 [node name="Main" type="Node3D"]
 
 [node name="Ground" type="StaticBody3D" parent="."]
@@ -25,3 +29,12 @@ shape = SubResource("BoxShape3D_onjn6")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("PlaneMesh_n31q6")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_1uylx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_7b8j4")
