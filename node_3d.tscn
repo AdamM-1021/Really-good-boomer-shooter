@@ -1,13 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://mgbkeymyd85c"]
 
-[ext_resource type="Texture2D" uid="uid://b4rl1kv1l53yb" path="res://Checkerboard_pattern.svg.png" id="1_a68qg"]
+[ext_resource type="Texture2D" uid="uid://dy6v1areqcrk1" path="res://floor_1.png" id="1_eclw7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_onjn6"]
 size = Vector3(60, 1, 60)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqvsh"]
-albedo_texture = ExtResource("1_a68qg")
-uv1_scale = Vector3(10, 10, 10)
+albedo_texture = ExtResource("1_eclw7")
+uv1_triplanar = true
+uv1_triplanar_sharpness = 1.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_n31q6"]
 material = SubResource("StandardMaterial3D_dqvsh")
