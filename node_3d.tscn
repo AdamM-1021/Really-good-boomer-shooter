@@ -8,7 +8,6 @@ size = Vector3(60, 1, 60)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqvsh"]
 albedo_texture = ExtResource("1_eclw7")
 uv1_triplanar = true
-uv1_triplanar_sharpness = 1.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_n31q6"]
 material = SubResource("StandardMaterial3D_dqvsh")
@@ -27,7 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_onjn6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.388605, 0.405571, -0.15861)
 mesh = SubResource("PlaneMesh_n31q6")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
