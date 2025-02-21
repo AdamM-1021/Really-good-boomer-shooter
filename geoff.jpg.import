@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy6v1areqcrk1"
-path="res://.godot/imported/floor_1.png-8475ad2b8fe3e1486b7657d169868a9a.ctex"
+uid="uid://dojhnvj6evy4l"
+path.s3tc="res://.godot/imported/geoff.jpg-1e31f5efed82dc876b3d5315320d35aa.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://floor_1.png"
-dest_files=["res://.godot/imported/floor_1.png-8475ad2b8fe3e1486b7657d169868a9a.ctex"]
+source_file="res://geoff.jpg"
+dest_files=["res://.godot/imported/geoff.jpg-1e31f5efed82dc876b3d5315320d35aa.s3tc.ctex"]
 
 [params]
 
-compress/mode=4
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -25,7 +26,7 @@ mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
-process/fix_alpha_border=false
+process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false

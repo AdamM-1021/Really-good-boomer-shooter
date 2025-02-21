@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://mgbkeymyd85c"]
+[gd_scene load_steps=16 format=3 uid="uid://mgbkeymyd85c"]
 
 [ext_resource type="Texture2D" uid="uid://dy6v1areqcrk1" path="res://floor_1.png" id="1_eclw7"]
 [ext_resource type="Script" path="res://Player.gd" id="2_e2mtv"]
+[ext_resource type="Script" path="res://geoff_keighley.gd" id="3_jdbg6"]
+[ext_resource type="Texture2D" uid="uid://dojhnvj6evy4l" path="res://geoff.jpg" id="3_pmqiq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ypa8o"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -19,17 +21,30 @@ glow_enabled = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_onjn6"]
 size = Vector3(60, 1, 60)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqvsh"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5iqps"]
 albedo_texture = ExtResource("1_eclw7")
+uv1_scale = Vector3(2, 2, 2)
 uv1_triplanar = true
+texture_filter = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_n31q6"]
-material = SubResource("StandardMaterial3D_dqvsh")
+lightmap_size_hint = Vector2i(302, 302)
+material = SubResource("StandardMaterial3D_5iqps")
 size = Vector2(60, 60)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1uylx"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_7b8j4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6ugcw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qloal"]
+albedo_texture = ExtResource("3_pmqiq")
+billboard_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_g7osi"]
+material = SubResource("StandardMaterial3D_qloal")
+size = Vector2(1, 2)
 
 [node name="Main" type="Node3D"]
 
@@ -47,20 +62,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_onjn6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.541443, 0.175468, 0.0854543)
 mesh = SubResource("PlaneMesh_n31q6")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("2_e2mtv")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_1uylx")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
 mesh = SubResource("CapsuleMesh_7b8j4")
 
-[node name="Head" type="Node3D" parent="CharacterBody3D"]
+[node name="Head" type="Node3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Head"]
+[node name="Camera3D" type="Camera3D" parent="Player/Head"]
+
+[node name="Geoff Keighley" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -10)
+script = ExtResource("3_jdbg6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geoff Keighley"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000135899, 1.19209e-07, -0.00484657)
+shape = SubResource("CapsuleShape3D_6ugcw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geoff Keighley"]
+mesh = SubResource("QuadMesh_g7osi")
